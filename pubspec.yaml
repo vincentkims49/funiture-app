@@ -1,0 +1,34 @@
+name: funiture_store
+description: "A Funiture Store"
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.2.2 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  iconsax: ^0.0.8
+  google_fonts: ^6.1.0
+  flutter_svg: ^2.0.9
+  awesome_rating: ^0.0.4
+  animated_notch_bottom_bar: ^1.0.1
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/icons/
