@@ -38,6 +38,7 @@ class AppCardState extends State<AppCard> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      padding: EdgeInsets.only(bottom: widget.h * .08),
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       itemCount: funitureList.length,

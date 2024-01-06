@@ -36,11 +36,13 @@ class _PageRootState extends State<PageRoot> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView(
-        controller: _pageController,
-        physics: const NeverScrollableScrollPhysics(),
-        children: List.generate(
-            bottomBarPages.length, (index) => bottomBarPages[index]),
+      body: Expanded(
+        child: PageView(
+          controller: _pageController,
+          physics: const NeverScrollableScrollPhysics(),
+          children: List.generate(
+              bottomBarPages.length, (index) => bottomBarPages[index]),
+        ),
       ),
       extendBody: true,
       bottomNavigationBar: (bottomBarPages.length <= maxCount)
@@ -101,7 +103,6 @@ class _PageRootState extends State<PageRoot> {
                 ),
               ],
               onTap: (index) {
-                // log('current selected index $index');
                 _pageController.jumpToPage(index);
               },
               kIconSize: 24.0,

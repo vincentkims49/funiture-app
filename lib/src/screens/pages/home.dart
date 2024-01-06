@@ -28,6 +28,7 @@ class _HomePageState extends State<HomePage> {
         physics: const ClampingScrollPhysics(),
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Column(
+          
           children: [
             const SizedBox(height: 30),
             FadeInAnimation(
