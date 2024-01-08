@@ -40,7 +40,7 @@ List<FunitureData> funitureList = [
       name: "Ancient wooden Chair ",
       imagePath: "assets/images/c1.png",
       description: 'This is a chair. This is a chair. This is a chair.',
-      price: '19,999',
+      price: '19999',
       id: "1",
       detailedDescription:
           'This is a chair. This is a chair. This is a chair.This is a chair. This is a chair. This is a chair.This is a chair. This is a chair. This is a chair.'),
@@ -48,7 +48,7 @@ List<FunitureData> funitureList = [
       name: "Hard Style Chair ",
       imagePath: "assets/images/c2.png",
       description: 'This is a chair. This is a chair. This is a chair.',
-      price: '21,999',
+      price: '21999',
       id: "2",
       detailedDescription:
           'This is a chair. This is a chair. This is a chair.This is a chair. This is a chair. This is a chair.This is a chair. This is a chair. This is a chair.'),
@@ -56,7 +56,7 @@ List<FunitureData> funitureList = [
       name: "One Person Cosy Sofa",
       imagePath: "assets/images/c3.png",
       description: 'This is a chair. This is a chair. This is a chair.',
-      price: '22,999',
+      price: '22999',
       id: "3",
       detailedDescription:
           'This is a chair. This is a chair. This is a chair.This is a chair. This is a chair. This is a chair.This is a chair. This is a chair. This is a chair.'),
@@ -64,7 +64,7 @@ List<FunitureData> funitureList = [
       name: "Blue Leather Office Chair ",
       imagePath: "assets/images/c4.png",
       description: 'This is a chair. This is a chair. This is a chair.',
-      price: '38,999',
+      price: '38999',
       id: "4",
       detailedDescription:
           'This is a chair. This is a chair. This is a chair.This is a chair. This is a chair. This is a chair.This is a chair. This is a chair. This is a chair.'),
@@ -72,7 +72,7 @@ List<FunitureData> funitureList = [
       name: "Pink Leather Office Chair ",
       imagePath: "assets/images/c5.png",
       description: 'This is a chair. This is a chair. This is a chair.',
-      price: '57,999',
+      price: '57999',
       id: "5",
       detailedDescription:
           'This is a chair. This is a chair. This is a chair.This is a chair. This is a chair. This is a chair.This is a chair. This is a chair. This is a chair.'),
@@ -80,7 +80,7 @@ List<FunitureData> funitureList = [
       name: "Black Leather Styled Office Chair ",
       imagePath: "assets/images/c6.png",
       description: 'This is a chair. This is a chair. This is a chair.',
-      price: '78,999',
+      price: '78999',
       id: "6",
       detailedDescription:
           'This is a chair. This is a chair. This is a chair.This is a chair. This is a chair. This is a chair.This is a chair. This is a chair. This is a chair.'),

@@ -15,7 +15,6 @@ class PageRoot extends StatefulWidget {
 }
 
 class _PageRootState extends State<PageRoot> {
-  /// Controller to handle PageView and also handles initial page
   final _pageController = PageController(initialPage: 0);
 
   final _controller = NotchBottomBarController(index: 0);
@@ -36,13 +35,11 @@ class _PageRootState extends State<PageRoot> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Expanded(
-        child: PageView(
-          controller: _pageController,
-          physics: const NeverScrollableScrollPhysics(),
-          children: List.generate(
-              bottomBarPages.length, (index) => bottomBarPages[index]),
-        ),
+      body: PageView(
+        controller: _pageController,
+        physics: const NeverScrollableScrollPhysics(),
+        children: List.generate(
+            bottomBarPages.length, (index) => bottomBarPages[index]),
       ),
       extendBody: true,
       bottomNavigationBar: (bottomBarPages.length <= maxCount)
@@ -51,10 +48,13 @@ class _PageRootState extends State<PageRoot> {
               color: Colors.deepPurple,
               showLabel: false,
               shadowElevation: 5,
-              kBottomRadius: 28.0,
+              showShadow: true,
+               
+              kBottomRadius: 10,
               notchColor: Colors.deepPurple,
               removeMargins: false,
               bottomBarWidth: 500,
+
               durationInMilliSeconds: 300,
               bottomBarItems: const [
                 BottomBarItem(

@@ -6,43 +6,36 @@ import '../animations/fade_in.dart';
 import '../screens/pages/details_page.dart';
 import '../utils/data.dart';
 
-// ignore: must_be_immutable
-class AppCard extends StatefulWidget {
+class AppCard extends StatelessWidget {
+  final double h;
+  final double w;
+  final void Function(int index) handleisAddedToCart;
+  final void Function(int index) handleisSelected;
+  final void Function(GlobalKey) onClick;
+  final List<bool> isAddedToCartList;
+  final List<bool> isSelectedList;
+
   const AppCard({
     super.key,
     required this.h,
     required this.w,
+    required this.handleisAddedToCart,
+    required this.handleisSelected,
+    required this.isAddedToCartList,
+    required this.isSelectedList,
+    required this.onClick,
   });
-
-  final double h;
-  final double w;
-  @override
-  State<AppCard> createState() => AppCardState();
-}
-
-
-
-
-class AppCardState extends State<AppCard> {
-  List<bool> isSelectedList = List.filled(
-    funitureList.length,
-    false,
-  );
-
-  void handleisSelected(int index) {
-    setState(() {
-      isSelectedList[index] = !isSelectedList[index];
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      padding: EdgeInsets.only(bottom: widget.h * .08),
+      padding: EdgeInsets.only(bottom: h * .09),
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       itemCount: funitureList.length,
       itemBuilder: (context, index) {
+        GlobalKey itemKey =
+            GlobalKey(debugLabel: "itemKey${funitureList[index].id}");
         return Padding(
           padding: const EdgeInsets.only(top: 5, bottom: 20),
           child: FadeInAnimation(
@@ -59,7 +52,7 @@ class AppCardState extends State<AppCard> {
                 );
               },
               child: Container(
-                height: widget.h * .2,
+                height: h * .22,
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -75,16 +68,19 @@ class AppCardState extends State<AppCard> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Expanded(
-                      child: Hero(
-                        tag: Key('imagetag${funitureList[index].id}'),
-                        child: Image.asset(
-                          funitureList[index].imagePath,
+                      child: Container(
+                        key: itemKey,
+                        child: Hero(
+                          tag: Key('imagetag${funitureList[index].id}'),
+                          child: Image.asset(
+                            funitureList[index].imagePath,
+                          ),
                         ),
                       ),
                     ),
                     SizedBox(
-                      width: widget.w * .5,
-                      height: widget.h * .3,
+                      width: w * .5,
+                      height: h * .3,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -113,19 +109,38 @@ class AppCardState extends State<AppCard> {
                                   fontSize: 16,
                                 ),
                               ),
-                              IconButton(
-                                onPressed: () {
-                                  handleisSelected(index);
-                                  // ignore: avoid_print
-                                  print("APP_CARD ${isSelectedList[index]}");
-                                },
-                                icon: Icon(
-                                  isSelectedList[index]
-                                      ? Icons.favorite
-                                      : Iconsax.heart,
-                                  size: 20,
-                                  color: Colors.deepPurple,
-                                ),
+                              Row(
+                                children: [
+                                  IconButton(
+                                    onPressed: () {
+                                      onClick(
+                                        itemKey,
+                                      );
+                                    },
+                                    icon: Icon(
+                                      isAddedToCartList[index]
+                                          ? Iconsax.shopping_cart
+                                          : Icons.add_shopping_cart,
+                                      size: 20,
+                                      color: Colors.deepPurple,
+                                    ),
+                                  ),
+                                  IconButton(
+                                    onPressed: () {
+                                      handleisSelected(index);
+                                      // ignore: avoid_print
+                                      print(
+                                          "APP_CARD ${isSelectedList[index]}");
+                                    },
+                                    icon: Icon(
+                                      isSelectedList[index]
+                                          ? Icons.favorite
+                                          : Iconsax.heart,
+                                      size: 20,
+                                      color: Colors.deepPurple,
+                                    ),
+                                  ),
+                                ],
                               )
                             ],
                           )

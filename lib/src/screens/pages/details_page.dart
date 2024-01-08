@@ -4,7 +4,6 @@ import 'package:iconsax/iconsax.dart';
 
 import '../../utils/data.dart';
 
-
 class ProfilePage extends StatefulWidget {
   const ProfilePage({
     super.key,
@@ -18,18 +17,23 @@ class ProfilePage extends StatefulWidget {
 }
 
 class ProfilePageState extends State<ProfilePage> {
-  int selectedColor = 0;
   int count = 1;
   bool isSelectedHeart = false;
+  int selectedColor = 0;
+  int total = 0;
+
   void addCount() {
     setState(() {
       count = count + 1;
+
+      total = count * int.parse(funitureList[widget.index].price);
     });
   }
 
   void minusCount() {
     setState(() {
       count == 1 ? count = count - 0 : count = count - 1;
+      total = count * int.parse(funitureList[widget.index].price);
     });
   }
 
@@ -38,8 +42,6 @@ class ProfilePageState extends State<ProfilePage> {
       selectedColor = index;
     });
   }
-
- 
 
   @override
   Widget build(BuildContext context) {
@@ -62,8 +64,7 @@ class ProfilePageState extends State<ProfilePage> {
                 ),
                 const Spacer(),
                 GestureDetector(
-                  onTap: () {
-                  },
+                  onTap: () {},
                   child: const Icon(
                     Icons.favorite,
                     color: Colors.deepPurple,
@@ -83,7 +84,7 @@ class ProfilePageState extends State<ProfilePage> {
           ),
           Expanded(
             child: Container(
-              padding: const EdgeInsets.only(top: 40, left: 20, right: 20),
+              padding: const EdgeInsets.only(top: 40, left: 15, right: 15),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: const BorderRadius.vertical(
@@ -137,6 +138,7 @@ class ProfilePageState extends State<ProfilePage> {
                         height: h * .02,
                       ),
                       Row(
+
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Row(
@@ -150,7 +152,7 @@ class ProfilePageState extends State<ProfilePage> {
                                 ),
                               ),
                               const SizedBox(
-                                width: 10,
+                                width: 2,
                               ),
                               SizedBox(
                                 width: w * .4,
@@ -181,7 +183,7 @@ class ProfilePageState extends State<ProfilePage> {
                                         ),
                                         width: w * .075,
                                         margin: const EdgeInsets.symmetric(
-                                            horizontal: 2),
+                                            horizontal: 1),
                                         child: Padding(
                                           padding: const EdgeInsets.all(4.0),
                                           child: Container(
@@ -190,7 +192,7 @@ class ProfilePageState extends State<ProfilePage> {
                                                   BorderRadius.circular(25),
                                               color: circleColors[index],
                                             ),
-                                            width: 17,
+                                            width: 15,
                                           ),
                                         ),
                                       ),
@@ -246,7 +248,7 @@ class ProfilePageState extends State<ProfilePage> {
                             ),
                           ),
                           Text(
-                            "\$ ${funitureList[widget.index].price}",
+                            "\$ ${total == 0 ? total = int.parse(funitureList[widget.index].price) : total.toString()}",
                             style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
